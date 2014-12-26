@@ -33,4 +33,7 @@ In this module you'll learn the difference between control-oriented and data-ori
   + Expressions are code snippets placed in binding markup: {{ }}
     + business logic should not go into expressions
     + Mostly used for writing out values into the page
-    
+
++ ng-bind demo
+  + If you would like to bind data without using the binding markup
+    + you can do: span ng-bind="name"
