@@ -6,4 +6,4 @@ In this module you'll learn the difference between control-oriented and data-ori
     + Add this in at the smallest level possible such that the display will be set to none on initial load
     + add ng-cloak to your own css so that when the page loads, there will be no flicker
   + 2. <a href="https://docs.angularjs.org/api/ng/directive/ngSwitch">ng-switch</a>
-  + 3.  ng-class
+  + 3.  <a href="https://docs.angularjs.org/api/ng/directive/ngClass">ng-class</a>

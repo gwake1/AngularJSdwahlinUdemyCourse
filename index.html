@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>More on Directives</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-<body ng-init="data={name:'Gerald', isVisible: false, loggedIn: false}">
+<body ng-init="data={name:'Gerald', isVisible: true, loggedIn: false, status: 'navy'}">
   <div ng-cloak>
     <div ng-switch on="data.loggedIn">
       <div ng-switch-when="true">
         Welcome {{data.name}}
       </div>
-      <div ng-switch-when="false">
+      <div ng-switch-when="false" ng-class="data.status">
         Login
       </div>
     </div>
