@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Using Directives</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body ng-init="name='Gerald'">
-  <div ng-hide="isHidden">
+  <div ng-cloak ng-hide="isHidden">
   <!--   isHidden will be true or false based on check box, when true it will add CSS to hide the div, if false it will show the div -->
     Name: <input type="text" ng-model="name"/> <span ng-bind="name"></span>
   </div>
