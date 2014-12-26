@@ -5,5 +5,5 @@ In this module you'll learn the difference between control-oriented and data-ori
     + When loading the page, sometimes the data binding will be visible; this will look unprofessional
     + Add this in at the smallest level possible such that the display will be set to none on initial load
     + add ng-cloak to your own css so that when the page loads, there will be no flicker
-  + 2. ng-switch
+  + 2. <a href="https://docs.angularjs.org/api/ng/directive/ngSwitch">ng-switch</a>
   + 3.  ng-class
