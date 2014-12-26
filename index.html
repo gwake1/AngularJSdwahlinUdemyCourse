@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <title>Using Directives</title>
 </head>
-<body>
-  <div ng-show="checked">
+<body ng-init="name='Gerald'">
+  <div ng-hide="isHidden">
   <!--   isHidden will be true or false based on check box, when true it will add CSS to hide the div, if false it will show the div -->
     Name: <input type="text" ng-model="name"/> {{ name }}
   </div>
-  Hide: <input type="checkbox" ng-model="checked"/>
+  Hide: <input type="checkbox" ng-model="isHidden"/>
   <br>
   <button>Change Name</button>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
