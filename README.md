@@ -13,6 +13,6 @@ In this module you'll learn the difference between control-oriented and data-ori
         + "var name = document.getElementById("name").value;"
     + b. Data Oriented programming we leverage a framework
       + 1.  Property is bound to a textbox
-        + "<input type = "text" bindProperty="name" />"
+        + "<"input type = "text" bindProperty="name" "/>"
       + 2.  User modifies data
       + 3. Property value is automatically updated
