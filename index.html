@@ -17,7 +17,7 @@
       <td>Order Total</td>
       <td>Join Date</td>
     </tr>
-    <tr ng-repeat="person in people | limitTo:2">
+    <tr ng-repeat="person in people | orderBy:'name'">
       <td>{{person.name | uppercase}}</td>
       <td>{{person.city | lowercase}}</td>
       <td>{{person.orderTotal | currency}}</td>
