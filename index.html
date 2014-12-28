@@ -5,19 +5,23 @@
   <title>Iterating Over Data</title>
   <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-<body ng-init="people=[{name: 'John', city:'Nashville'}, {name:'Gerald', city:'Heaven'}, {name: 'Joe', city:'Dirte'} ]">
-  <ul>
-    <li ng-repeat="person in people">{{person.name}} {{person.city}}</li>
-  </ul>
-
+<body ng-init="people=[{name: 'John', city:'Nashville', joined: '2012/01/15', orderTotal: 9.998}, {name:'Gerald', city:'Heaven', joined: '1989/08/07', orderTotal: 7.00}, {name: 'Joe', city:'Dirte', joined: '2012/01/23', orderTotal: 14.23} ]">
+  <h2>Customers</h2>
+  Filter: <input type="text" ng-model="customerFilter" />
+  <br>
+  <br>
   <table>
     <tr>
-      <td>Name</td>
-      <td>City</td>
+      <th ng-click="sortBy='name'; reverse=!reverse">Name</th>
+      <th ng-click="sortBy='city'; reverse=!reverse">City</th>
+      <th ng-click="sortBy='orderTotal'; reverse=!reverse">Order Total</th>
+      <th ng-click="sortBy='joined'; reverse=!reverse">Join Date</th>
     </tr>
-    <tr ng-repeat="person in people">
-      <td>{{person.name}}</td>
-      <td>{{person.city}}</td>
+    <tr ng-repeat="person in people | filter: customerFilter | orderBy:sortBy:reverse">
+      <td>{{person.name | uppercase}}</td>
+      <td>{{person.city | lowercase}}</td>
+      <td>{{person.orderTotal | currency}}</td>
+      <td>{{person.joined | date}}</td>
     </tr>
   </table>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
