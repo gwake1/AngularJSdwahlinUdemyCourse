@@ -12,12 +12,12 @@
   <br>
   <table>
     <tr>
-      <td>Name</td>
-      <td>City</td>
-      <td>Order Total</td>
-      <td>Join Date</td>
+      <th ng-click="sortBy='name'; reverse=!reverse">Name</th>
+      <th ng-click="sortBy='city'; reverse=!reverse">City</th>
+      <th ng-click="sortBy='orderTotal'; reverse=!reverse">Order Total</th>
+      <th ng-click="sortBy='joined'; reverse=!reverse">Join Date</th>
     </tr>
-    <tr ng-repeat="person in people | filter: customerFilter | orderBy:'name'">
+    <tr ng-repeat="person in people | filter: customerFilter | orderBy:sortBy:reverse">
       <td>{{person.name | uppercase}}</td>
       <td>{{person.city | lowercase}}</td>
       <td>{{person.orderTotal | currency}}</td>
