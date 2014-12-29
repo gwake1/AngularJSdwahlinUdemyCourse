@@ -10,6 +10,7 @@
       this.reverse = !this.reverse
     }
   }
+  CustomersController.$inject = [ "$scope" ];
   angular.module("customersApp")
   .controller("CustomersController", CustomersController);
 }());
