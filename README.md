@@ -62,8 +62,9 @@ Controllers play a critical role in the AngularJS framework. In this module you'
                 { name: "Joe", city:"Dirte", joined: "2012/01/23", orderTotal: 14.23 }
                 ];
                 }])
-        + Option 2 (in conjuction with Option 3 for Adding a Controller to the Module above)
+        + Option 2 (in conjunction with Option 3 for Adding a Controller to the Module above)
           + define the controller and then <a href="https://docs.angularjs.org/api/auto/service/$injector">inject the variable</a>
+          + this will keep angular from breaking the dependency injection
           + (function() {
             var SimpleController = function($scope){
               $scope.customers = [
