@@ -1,32 +1,17 @@
-<!DOCTYPE html >
-<html lang="en" ng-app="customersApp">
+<!doctype html>
+<html ng-app="customersApp">
 <head>
-  <meta charset="UTF-8">
-  <title>Iterating Over Data</title>
-  <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Iterating Over Data</title>
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
 </head>
-<body ng-controller="CustomersController as ctrl">
-  <h2>Customers</h2>
-  Filter: <input type="text" ng-model="customerFilter" />
-  <br>
-  <br>
-  <table ng-cloak>
-    <tr>
-      <th ng-click="doSort('name')">Name</th>
-      <th ng-click="doSort('city')">City</th>
-      <th ng-click="doSort('orderTotal')">Order Total</th>
-      <th ng-click="doSort('joined')">Join Date</th>
-    </tr>
-    <tr ng-cloak class="ng-cloak" ng-repeat="person in ctrl.customers | filter: customerFilter | orderBy:sortBy:reverse">
-      <td>{{person.name | uppercase}}</td>
-      <td>{{person.city | lowercase}}</td>
-      <td>{{person.orderTotal | currency}}</td>
-      <td>{{person.joined | date}}</td>
-    </tr>
-  </table>
-  <span ng-cloak class="ng-cloak">Total Customers: {{ctrl.customers.length}}</span>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
-  <script src="app/app.js"></script>
-  <script src="app/controllers/customersController.js"></script>
+<body>
+    
+    <div ng-view></div>
+    
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/customersController.js"></script>
+    <script src="app/controllers/ordersController.js"></script>
 </body>
 </html>
