@@ -1,43 +1,40 @@
-Once you understand how to create controllers and views you need to know how to integrate routing into your Single Page Application. In this module you'll learn how to do that using the $routeProvider and see how to define routes, create route parameters, and access route parameter values. You'll also learn about the role that the ng-view directive plays in AngularJS.
+Factories and services can be used to encapsulate re-useable code so it can be shared across application components such as controllers and even other factories or services. In this module you'll learn about the role of factories and services, see how they can be created and added into a module, and learn the difference between the two. You'll also learn about built-in AngularJS services such as $http and see how it can be used to make Ajax calls to a back-end Node.js RESTful service.
 
-+ Referencing the ngRoute Module
-  + AngularJS routing functionality is located in the ngRoute module
-  + Add a script that loads angular-route.js
-    + bower install angular-route
-  + Reference ngRoute in the module
-    + var demoApp = angular.module("demoApp", ["ngRoute"])
-
-+   Defining Routes using angular.config()
-  + var demoApp = angular.module("customersApp", ["ngRoute"])
-  + app.config(function($routeProvider){
-    + $routeProvider
-    + .when("/",
-      + {
-        + controller: "CustomersController",
-        + templateUrl: "/app/views/customers.html"
-      + })
-    + .when("/orders",
-      + {
-        + controller: "OrdersController",
-        + templateUrl:  "/app/views/orders.html"
-      + })
-    + .otherwise({redirectTo: "/"})
-  + });
-+   Route Parameters
-  + Route parameters can be defined using the ":" character
-    + var demoApp = angular.module("customersApp", ["ngRoute"])
-    + app.config(function($routeProvider){
-      + $routeProvider
-      + .when("/editCustomer/:customerId",
-      + {
-        + controller: "CustomerEditController",
-        + templateUrl: "/app/views/customerEdit.html"
-      + });
-    + });
-+   Accessing Route Parameters in a Controller
-  +  Route parameters can be accessed through the $routeParams provider:
-    + var app = angular.module("customersApp");
-    + app.controller("CustomerEditController",
-      + function($scope, $routeParams) {
-        + $scope.customerId = $routeParams.customerId;
-      + })
++ Creating a Factory
+  + What is a Factory?
+    + Really just a singleton
+    + Define re-usable tasks
+    + Share code or state between controllers
+  + Factories
+    + Create and return a custom object
+    + Created using the module.factory() function
+    + Can be injected into other components
+    + Can have dependencies
++ Process of Creating a Factory
+  + (function(){
+    + var customersFactory = function(){
+      + var customers = {. . .};
+      + var factory = {};
+      + factory.getCustomers = function(){
+        + return customers,
+      + };
+      + return factory;
+    + };
+    + angular.module("customersApp")
+      + .factory("customersFactory", customersFactory)
+  +}());
+  + Notes on above factory
+    + Be sure to wrap in an iife so as not to pollute the global name space
+    + var factory is our custom factory object to assign additional properties and then return the custom factory object
++ Process of Injecting a Factory
+  + var CustomersController = function($scope, customersFactory) {
+    + function init(){
+      + $scope.customers = customersFactory.getCustomers();
+    + };
+    + CustomersController.$inject = [ "$scope", "customersFactory" ];
+    + angular.module("customersApp")
+      + .controller("CustomersController", CustomersController)
+  + };
+  + Notes on above factory injection
+    + the second parameter above is the custom factory being injected into the controller in this case to retrieve customer data
+    + this will help to modularize and make easier to maintain
